@@ -1,0 +1,43 @@
+SMOKE-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        OBJECT-TYPE, 
+        Integer32, 
+        MODULE-IDENTITY, 
+        NOTIFICATION-TYPE, 
+        enterprises
+                     FROM SNMPv2-SMI
+;
+
+smokeMIB MODULE-IDENTITY
+    LAST-UPDATED "201307181200Z"
+    ORGANIZATION "MetraTech"
+    CONTACT-INFO "Internet: http://metratech.com"
+    DESCRIPTION "This Mib Module is used for MetraNet Smoke-Tests."
+    REVISION "201307181200Z"
+    DESCRIPTION "The initial version."
+    
+    ::= {enterprises 42}
+
+metraTech       OBJECT IDENTIFIER ::= {enterprises}
+
+smokeStatus OBJECT-TYPE
+    SYNTAX Integer32
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "Smoke Test Machine Status"
+    ::= {metraTech 1}
+
+smokeDescription OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "Status Description"
+    ::= {metraTech 2}
+
+smokeTestTrap NOTIFICATION-TYPE
+    STATUS current
+    DESCRIPTION "Smoke Test Failure"
+    ::= {metraTech 3}
+
+END

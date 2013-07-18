@@ -9,7 +9,7 @@ errorIndication = ntfOrg.sendNotification(
     ntforg.CommunityData('$mtSNMPr%'),
     ntforg.UdpTransportTarget(('10.200.23.6 ', 162)),
     'trap',
-    ntforg.MibVariable('SNMPv2-MIB', 'coldStart'),
+    ntforg.MibVariable('SMOKE-MIB', 'coldStart'),
     (ntforg.MibVariable('SNMPv2-MIB', 'sysName', 0), 'new name')
 )
 
